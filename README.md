@@ -1,5 +1,5 @@
 # yousician_foot_pedal
-Simple USB stompbox to control [Yousician]([url](https://yousician.com/)).   
+Simple USB stompbox to control [Yousician](https://yousician.com/)).   
 The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](https://reference.arduino.cc/reference/en/language/functions/usb/keyboard/) (beware: doesn't work on every Arduino).
 
 - `R` : reset the song
