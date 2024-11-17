@@ -13,8 +13,7 @@ Wiring:
 - D2, D3 & D4 to button side 1
 */
 
-#include <USB.h>
-#include <USBHIDKeyboard.h>
+#include <Keyboard.h>
 
 USBHIDKeyboard Keyboard;
 
