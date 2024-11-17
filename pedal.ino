@@ -9,13 +9,14 @@ wokwi test: https://wokwi.com/projects/414254245075609601
 - SPACE = pauze/play
 
 Wiring:
-- 3.3V to all button power sides (left or right, doesn't matter)
-- button ground sides (middle) to 10k ohm resistors (1)
-- 10k ohm resistors (2) to ground
-- 10k ohm resistors (2) to D2, D3 & D4
+- GNDs to button side 2
+- D2, D3 & D4 to button side 1
 */
 
-// #include <keyboard.h>
+#include <USB.h>
+#include <USBHIDKeyboard.h>
+
+USBHIDKeyboard Keyboard;
 
 // set pin numbers for the buttons:
 const int rButton = 2;
@@ -32,49 +33,57 @@ int spaceButtonState_previous = 0;
 
 void setup() {
 
-    // pinmodes
-    pinMode(rButton, INPUT);
-    pinMode(pButton, INPUT);
-    pinMode(spaceButton, INPUT);
+  // pinmodes
+  pinMode(rButton, INPUT_PULLUP);
+  pinMode(pButton, INPUT_PULLUP);
+  pinMode(spaceButton, INPUT_PULLUP);
 
-    // initialize states when powering up
-    rButtonState_previous = digitalRead(rButton);
-    pButtonState_previous = digitalRead(pButton);
-    spaceButtonState_previous = digitalRead(spaceButton);
+  // initialize states when powering up
+  rButtonState_previous = digitalRead(rButton);
+  pButtonState_previous = digitalRead(pButton);
+  spaceButtonState_previous = digitalRead(spaceButton);
 
-    Serial.begin(9600);
-    // Keyboard.begin();
+  Serial.begin(9600);
 
+  // init usb connection
+  USB.begin();
+  Keyboard.begin();
 }
 
 void loop() {
 
   // toggle R keypress
   rButtonState = digitalRead(rButton);
-  if(rButtonState != rButtonState_previous){
-    Serial.println("R");
-    // Keyboard.write('r');
+  // Serial.println(rButtonState);
+  if (rButtonState != rButtonState_previous) {
+    if (!rButtonState) {
+      Serial.println("p");
+      Keyboard.print("r");
+    }
     rButtonState_previous = rButtonState;
   }
 
-    // toggle P keypress
+  // toggle P keypress
   pButtonState = digitalRead(pButton);
-  if(pButtonState != pButtonState_previous){
-    Serial.println("P");
-    // Keyboard.write('p');
-    pButtonState_previous = pButtonState;
+  if (pButtonState != pButtonState_previous) {
+    if (!pButtonState) {
+      Serial.println("p");
+      Keyboard.print("p");
+    }
+    rButtonState_previous = pButtonState;
   }
 
   // toggle space keypress
   spaceButtonState = digitalRead(spaceButton);
-  if(spaceButtonState != spaceButtonState_previous){
-    Serial.println("space");
-    // Keyboard.write('space');
+  if (spaceButtonState != spaceButtonState_previous) {
+    if (!spaceButtonState) {
+      Serial.println("SPACE");
+      Keyboard.print(" ");
+    }
     spaceButtonState_previous = spaceButtonState;
   }
 
-  // delay for table readings 
+  // delay for table readings
   // (allow voltage drop to ground)
   delay(10);
-    
 }
