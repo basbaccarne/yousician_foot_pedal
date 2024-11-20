@@ -7,7 +7,7 @@ The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](htt
 - `space` : toggles between pauze and play
 
 # Hardware
-- [ ] [Arduino Nano ESP32](https://store.arduino.cc/en-be/products/nano-esp32)
+- [ ] [Arduino Micro](https://store.arduino.cc/en-be/products/arduino-micro) (Keyboard.h is not available for Arduino nano, nano 3IOT & ESP32)
 - [ ] [3 x Footswitch Soft Click, SPST, momentary](https://www.tonefactory.nl/footswitch-soft-click-spst-momentary)
 - [ ] [Stompbox casing](https://www.tonefactory.nl/effect-behuizing-1590b-style-black)
 - [ ] [USB-c panel mount](https://www.gotron.be/panel-mount-usb-c-kabel-montage-op-chassis-rond.html)
