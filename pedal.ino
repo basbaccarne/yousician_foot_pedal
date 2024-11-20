@@ -2,8 +2,6 @@
 This is a simple code snippet for a foot paddle fot comon Yousician shortcuts
 It simulates a keyboard using keyboard.h
 
-wokwi test: https://wokwi.com/projects/414254245075609601
-
 - R = restart
 - P = toggle practice/perform
 - SPACE = pauze/play
