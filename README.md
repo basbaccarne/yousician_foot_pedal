@@ -15,10 +15,8 @@ The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](htt
 * ⌨️ [Arduino Code](pedal.ino)
 
 # Wiring
-- `Arduino` 3.3V --> all `button` power sides (left or right, doesn't matter)
-- `button` ground sides (middle) --> `10k ohm resistors` (1)
-- `10k ohm resistors` (2) --> `Arduino` GND
-- `10k ohm resistors` (2) --> `Arduino` D2, D3 & D4
+- `Arduino` D2, D3 & D4  --> all `button` power sides (left or right, doesn't matter)
+- `button` ground sides (middle) --> `Arduino` GND
 
 # Construction
 - Drill holes in casing
