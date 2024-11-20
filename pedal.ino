@@ -15,8 +15,6 @@ Wiring:
 
 #include <Keyboard.h>
 
-USBHIDKeyboard Keyboard;
-
 // set pin numbers for the buttons:
 const int rButton = 2;
 const int pButton = 3;
@@ -44,8 +42,7 @@ void setup() {
 
   Serial.begin(9600);
 
-  // init usb connection
-  USB.begin();
+  // init keyboard connection
   Keyboard.begin();
 }
 
@@ -56,7 +53,7 @@ void loop() {
   // Serial.println(rButtonState);
   if (rButtonState != rButtonState_previous) {
     if (!rButtonState) {
-      Serial.println("p");
+      Serial.println("r");
       Keyboard.print("r");
     }
     rButtonState_previous = rButtonState;
