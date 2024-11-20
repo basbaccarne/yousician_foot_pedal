@@ -1,7 +1,9 @@
 # yousician_foot_pedal
 Simple USB stompbox to control [Yousician](https://yousician.com/)).   
-The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](https://reference.arduino.cc/reference/en/language/functions/usb/keyboard/) (beware: doesn't work on every Arduino).
-
+The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](https://reference.arduino.cc/reference/en/language/functions/usb/keyboard/) (beware: doesn't work on every Arduino).   
+- [ ] Change to [Keyboard.press](https://www.arduino.cc/reference/tr/language/functions/usb/keyboard/keyboardpress/) & releases instead of Keyboard.print()
+- [ ] Legend with [keypresses](https://www.arduino.cc/reference/tr/language/functions/usb/keyboard/keyboardmodifiers/)
+---
 - `R` : reset the song
 - `P` : toggles between practice and perfom mide
 - `space` : toggles between pauze and play
