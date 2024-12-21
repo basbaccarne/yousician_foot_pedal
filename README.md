@@ -1,6 +1,6 @@
 # Yousician foot pedal
 
-The is a simple USB stompbox to control [Yousician](https://yousician.com/)).   
+The is a simple USB stompbox to control [Yousician](https://yousician.com/).   
 The stompbox has 3 buttons and simulates keyboard presses using [keyboard.h](https://reference.arduino.cc/reference/en/language/functions/usb/keyboard/) (beware: doesn't work on every Arduino).   
 This example uses the Arduino Micro and some sweet buttons from [Tonefactory](https://www.tonefactory.nl).   
 
