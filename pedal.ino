@@ -3,8 +3,9 @@ This is a simple code snippet for a foot paddle fot comon Yousician shortcuts
 It simulates a keyboard using keyboard.h
 
 - R = restart
-- P = toggle practice/perform
 - SPACE = pauze/play
+- P = toggle practice/perform
+
 
 Wiring:
 - GNDs to button side 2
@@ -15,8 +16,9 @@ Wiring:
 
 // set pin numbers for the buttons:
 const int rButton = 2;
-const int pButton = 3;
-const int spaceButton = 4;
+const int spaceButton = 3;
+const int pButton = 4;
+
 
 // state variables (the button is a switch button)
 int rButtonState = 0;
@@ -48,23 +50,12 @@ void loop() {
 
   // toggle R keypress
   rButtonState = digitalRead(rButton);
-  // Serial.println(rButtonState);
   if (rButtonState != rButtonState_previous) {
     if (!rButtonState) {
       Serial.println("r");
       Keyboard.print("r");
     }
     rButtonState_previous = rButtonState;
-  }
-
-  // toggle P keypress
-  pButtonState = digitalRead(pButton);
-  if (pButtonState != pButtonState_previous) {
-    if (!pButtonState) {
-      Serial.println("p");
-      Keyboard.print("p");
-    }
-    rButtonState_previous = pButtonState;
   }
 
   // toggle space keypress
@@ -76,6 +67,17 @@ void loop() {
     }
     spaceButtonState_previous = spaceButtonState;
   }
+
+  // toggle P keypress
+  pButtonState = digitalRead(pButton);
+  if (pButtonState != pButtonState_previous) {
+    if (!pButtonState) {
+      Serial.println("p");
+      Keyboard.print("p");
+    }
+    pButtonState_previous = pButtonState;
+  }
+
 
   // delay for table readings
   // (allow voltage drop to ground)
